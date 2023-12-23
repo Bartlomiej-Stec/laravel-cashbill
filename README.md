@@ -3,12 +3,6 @@
 Package for easily integrating Cashbill payments with Laravel.
 
 
-
-# Cashbill payment system for Laravel
-Package for easily integrating Cashbill payments with Laravel.
-
-
-
 ## Support
 If this package is helpful for you, you can support my work on Ko-fi.
 
