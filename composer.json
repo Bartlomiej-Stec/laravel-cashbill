@@ -1,0 +1,31 @@
+{
+    "name": "barstec/laravel-cashbill",
+    "description": "Package for easily integrating cashbill payments with Laravel.",
+    "keywords": ["laravel", "cashbill", "framework", "api", "package", "payments"],
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Bartłomiej Stec"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Barstec\\Cashbill\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "^10.38"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Barstec\\Cashbill\\CashbillServiceProvider"
+            ],
+            "aliases": {
+                "Cashbill": "Barstec\\Cashbill\\CashbillFacade"
+            }
+        }
+    }
+}
