@@ -16,7 +16,7 @@
         }
     },
     "require": {
-        "illuminate/support": "^10.38"
+        "illuminate/support": "^10.0"
     },
     "extra": {
         "laravel": {
