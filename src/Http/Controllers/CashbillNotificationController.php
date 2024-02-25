@@ -19,11 +19,13 @@ class CashbillNotificationController extends Controller
         $orderId = $request->getOrderId();
         $order = new Order($orderId);
         $paymentDetails = $order->update();
-        if ($order->isPositiveFinish()) {
-            event(new TransactionSuccessfullyCompleted($paymentDetails));
-        } else if ($order->statusChanged()) {
-            event(new TransactionStatusChanged($paymentDetails->getStatus()));
+        if ($order->statusChanged()) {
+            if ($order->isPositiveFinish()) {
+                event(new TransactionSuccessfullyCompleted($paymentDetails));
+            } else {
+                event(new TransactionStatusChanged($paymentDetails->getStatus()));
+            }
         }
-        return response('OK');
+        return response('OK', 200);
     }
 }

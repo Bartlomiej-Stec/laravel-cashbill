@@ -38,8 +38,9 @@ class Order extends Cashbill
 
     protected function requestInputVerify(): void
     {
-        if (empty($this->orderId) || !Transaction::where('order_id', $this->orderId)->exists())
-            throw new CashbillException('Transaction order ID is invalid');
+        if (empty($this->orderId) || !Transaction::where('order_id', $this->orderId)->exists()) {
+            throw new CashbillException('Transaction order ID: ' . $this->orderId . ' is invalid');
+        }
     }
 
     protected function createPersonalData(array $data): PersonalData
