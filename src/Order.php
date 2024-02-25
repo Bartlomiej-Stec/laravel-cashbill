@@ -30,8 +30,8 @@ class Order extends Cashbill
 
     private function checkStatusChanged(string $status): void
     {
-        $currentStatus = Transaction::where('order_id', $this->orderId)->first()->pluck('status');
-        if ($this->statusExists($status) && $currentStatus !== $status && !$this->isFinalStatus($currentStatus))
+        $currentStatus = Transaction::where('order_id', $this->orderId)->first()->status;
+        if ($this->statusExists($status) && $currentStatus != $status && !$this->isFinalStatus($currentStatus))
             $this->lastStatus = $status;
 
     }
