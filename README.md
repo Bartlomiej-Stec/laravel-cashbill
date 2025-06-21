@@ -45,7 +45,7 @@ Ensure that you specify the same notification route as in the CashBill shop sett
 
 ## Usage/Examples
 
-To initiate a transaction, create a **Payload** object in your controller and assign values. Then, create a **Payment** object, pass the **Payload**, and call **redirect()**. This action will start the transaction and redirect the user to the Cashbill payment page. You can also create a **PersonalData** object. The *first name*, *surname*, and *email address* will be automatically filled on the Cashbill page.
+To initiate a transaction, create a **Payload** object in your controller and assign values. To link your item to the transaction use **additionalData** field. Then, create a **Payment** object, pass the **Payload**, and call **redirect()**. This action will start the transaction and redirect the user to the Cashbill payment page. You can also create a **PersonalData** object. The *first name*, *surname*, and *email address* will be automatically filled on the Cashbill page. 
 
 ```php
 <?php
@@ -63,6 +63,7 @@ class CashbillExample extends Controller
         $payload = new Payload();
         $payload->setTitle("Example title");
         $payload->setAmount(9.5);
+        $payload->setAdditionalData($productId); //Use this field to link transaction to the item
 
         $personalData = new PersonalData();
         $personalData->setEmail("email@example.com");
